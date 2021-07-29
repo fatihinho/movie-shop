@@ -1,8 +1,11 @@
 package com.fcinar.movieshop.dto
 
+import com.fcinar.movieshop.model.Director
+import java.util.*
+
 data class MovieDto(
-    val id: Long?,
+    val id: UUID,
     val name: String,
     val rank: Double,
-    val director: DirectorDto
+    val director: Director
 )

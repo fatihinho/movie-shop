@@ -3,6 +3,7 @@ package com.fcinar.movieshop.service;
 import com.fcinar.movieshop.dto.AddDirectorRequest;
 import com.fcinar.movieshop.model.Director;
 import com.fcinar.movieshop.repository.IDirectorRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class DirectorService {
         this.directorRepository = directorRepository;
     }
 
-    public Director addDirector(AddDirectorRequest addDirectorRequest) {
+    public Director addDirector(@NotNull AddDirectorRequest addDirectorRequest) {
         Director director = new Director(addDirectorRequest.getName(), addDirectorRequest.getSurname());
         return directorRepository.save(director);
     }

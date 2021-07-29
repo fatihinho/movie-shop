@@ -1,6 +1,7 @@
 package com.fcinar.movieshop.controller;
 
 import com.fcinar.movieshop.dto.AddMovieRequest;
+import com.fcinar.movieshop.dto.MovieDto;
 import com.fcinar.movieshop.model.Movie;
 import com.fcinar.movieshop.service.MovieService;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +19,12 @@ public class MovieController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Movie>> getAllMovies() {
+    public ResponseEntity<List<MovieDto>> getAllMovies() {
         return ResponseEntity.ok(movieService.getAllMovies());
     }
 
     @PostMapping
-    public ResponseEntity<Movie> addMovie(@RequestBody AddMovieRequest addMovieRequest) {
+    public ResponseEntity<MovieDto> addMovie(@RequestBody AddMovieRequest addMovieRequest) {
         return ResponseEntity.ok(movieService.addMovie(addMovieRequest));
     }
 }
