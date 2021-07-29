@@ -1,8 +1,9 @@
 package com.fcinar.movieshop.dto
 
+import java.util.*
+
 data class DirectorDto(
-    val id: Long,
+    val id: UUID,
     val name: String,
-    val surname: String,
-    val movies: List<MovieDto>?
+    val surname: String
 )

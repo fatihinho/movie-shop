@@ -2,7 +2,6 @@ package com.fcinar.movieshop.controller;
 
 import com.fcinar.movieshop.dto.AddMovieRequest;
 import com.fcinar.movieshop.dto.MovieDto;
-import com.fcinar.movieshop.model.Movie;
 import com.fcinar.movieshop.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -2,8 +2,8 @@ package com.fcinar.movieshop.model
 
 import org.hibernate.Hibernate
 import java.util.*
-import javax.persistence.*
-import kotlin.collections.HashSet
+import javax.persistence.Entity
+import javax.persistence.Id
 
 @Entity
 data class Director(
@@ -11,15 +11,11 @@ data class Director(
     val id: UUID,
     val name: String,
     val surname: String,
-
-    @OneToMany(mappedBy = "director", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    val movies: Set<Movie>?
 ) {
     constructor(name: String, surname: String) : this(
         id = UUID.randomUUID(),
         name = name,
-        surname = surname,
-        movies = HashSet()
+        surname = surname
     )
 
     override fun equals(other: Any?): Boolean {
