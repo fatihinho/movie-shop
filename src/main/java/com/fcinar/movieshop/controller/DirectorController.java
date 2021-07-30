@@ -8,9 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/director")
+@RequestMapping("/api/v1/directors")
 public class DirectorController {
     private final DirectorService directorService;
 
@@ -18,9 +19,24 @@ public class DirectorController {
         this.directorService = directorService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<DirectorDto>> getAllMovies() {
         return ResponseEntity.ok(directorService.getAllDirectors());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DirectorDto> getDirectorById(@PathVariable UUID id) {
+        return ResponseEntity.ok(directorService.getDirectorById(id));
+    }
+
+    @GetMapping("/name")
+    public ResponseEntity<List<DirectorDto>> filterDirectorsByName(@RequestParam String p) {
+        return ResponseEntity.ok(directorService.filterDirectorsByName(p));
+    }
+
+    @GetMapping("/surname")
+    public ResponseEntity<List<DirectorDto>> filterDirectorsBySurname(@RequestParam String p) {
+        return ResponseEntity.ok(directorService.filterDirectorsBySurname(p));
     }
 
     @PostMapping

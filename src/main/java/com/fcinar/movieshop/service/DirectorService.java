@@ -37,4 +37,19 @@ public class DirectorService {
                 .findById(id)
                 .orElseThrow(() -> new DirectorNotFoundException("Director could not find by id: " + id));
     }
+
+    public DirectorDto getDirectorById(UUID id) {
+        Director director = findById(id);
+        return directorDtoConverter.convert(director);
+    }
+
+    public List<DirectorDto> filterDirectorsByName(String name) {
+        return directorRepository.findAllByNameIgnoreCase(name)
+                .stream().map(directorDtoConverter::convert).collect(Collectors.toList());
+    }
+
+    public List<DirectorDto> filterDirectorsBySurname(String surname) {
+        return directorRepository.findAllBySurnameIgnoreCase(surname)
+                .stream().map(directorDtoConverter::convert).collect(Collectors.toList());
+    }
 }
