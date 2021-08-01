@@ -1,12 +1,29 @@
 # Movie Shop
 
-## Spring Boot & Docker Application
+## Spring Boot & Docker Uygulaması
 
-### Docker Talimatlar
+### Kullanılan Araçlar
 
-1. Proje tamamlandıktan sonra konteynırlaştırmak istediğimiz versiyoununun .jar/.war paketini oluşturuyoruz.
-2. mvn clean -> Build Project -> mvn install işlemleri ile .jar/.war dosyamızı oluşturuyoruz.
-3. Dockerfile dosyası oluşturuyoruz ve gerekli konfigürasyonlarını yapıyoruz.
+```
+JDK: v11.0.11
+Maven: v3.8.1
+Docker: v20.10.7
+```
+
+### Endpointler
+
+```
+GET: /api/v1/directors
+POST: /api/v1/directors | params: {name: String, surname: String}
+GET: /api/v1/movies
+POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
+```
+
+### Docker Kullanım Talimatları
+
+1. Projeyi tamamladıktan sonra konteynırlaştırmak istediğimiz versiyoununun .jar ya da .war paketini oluşturmalıyız.
+2. mvn clean -> Build Project -> mvn install işlemleri ile /target dizini içerisinde .jar ya da .war paketi oluşacaktır.
+3. Projenin en üst dizini içerisinde Dockerfile dosyasını oluşturuyoruz ve gerekli konfigürasyonlarını yapıyoruz.
     ```
     # Dockerfile
     
@@ -36,7 +53,7 @@
     - Bu komut ile istediğimiz konteynırı sonlandırırız.
         > docker kill movieshop
     - Bu komut ile istediğimiz konteynırı sileriz. (Eğer çalışır durumdaysa --force tag'ini eklemeliyiz.)
-        > docker rm movieshop || docker rm --force movieshop
+        > docker rm movieshop (docker rm --force movieshop)
     - Bu komut ile port map'leme işlemi yapıyoruz. Yani konteynırımızdaki uygulamamızı hangi port ile erişeceğimizi
     belirliyoruz. Mesela -p 9090:8080 tag'ini yazarsak 9090 port'u üzerinden uygulamamıza erişebiliriz.
     Burada 9090 hangi port'tan erişeceğimizi, 8080 ise konteynır içerisinde uygulamanın hangi port üzerinden olduğuydu.
@@ -47,7 +64,7 @@
         > docker rmi <ImageID>
     - Bu komut ile image'ımızın terminalini kullanabiliyoruz.
         > docker exec -it movieshop bash
-6. Eğer aynanda birden fazla konteynırla çalışmak istiyorsak docker-compose.yml dosyası oluşturmamız gerekmektedir.
+6. Ayrıca aynanda birden fazla konteynırla çalışmak istiyorsak docker-compose.yml dosyası oluşturmamız gerekmektedir.
 Birden fazla servis tanımlayıp aynanda çalıştırabiliriz. Mesela bu projede h2database ayrı bir konteynır olarak
 kullanılacaktır. Onun için de application-docker.properties içerisinde h2database konfigürasyonlarını yaptık. Ardından
 Dockerfile dosyamızı ve docker-compose.yml dosyalarımızı buna göre ayarladık.
