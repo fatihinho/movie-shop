@@ -21,7 +21,7 @@ POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
 
 ### Docker Kullanım Talimatları
 
-1. Projeyi tamamladıktan sonra konteynırlaştırmak istediğimiz versiyoununun .jar ya da .war paketini oluşturmalıyız.
+1. Projeyi tamamladıktan sonra konteynerlaştırmak istediğimiz versiyoununun .jar ya da .war paketini oluşturmalıyız.
 2. mvn clean -> Build Project -> mvn install işlemleri ile /target dizini içerisinde .jar ya da .war paketi oluşacaktır.
 3. Projenin en üst dizini içerisinde Dockerfile dosyasını oluşturuyoruz ve gerekli konfigürasyonlarını yapıyoruz.
     ```
@@ -30,7 +30,7 @@ POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
     /* Projemizin teknolojisine göre seçiyoruz. (Docker Hub içerisinden bulabiliriz.) */ 
     FROM openjdk:11
     
-    /* Konteynırımızı hangi dizinde oluşturmak istediğimizi belirliyoruz. */
+    /* Konteynerımızı hangi dizinde oluşturmak istediğimizi belirliyoruz. */
     WORKDIR /app
     
     /* İmajını oluşturmak istediğimiz dosyayı belirtiyoruz. /target içerisinden /app içersine imaj kopyalıyoruz. */
@@ -48,15 +48,15 @@ POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
 5. Bazı Docker komutları.
     - Bu komutla şu an hangi imajların çalıştığını görebiliriz.
         > docker ps
-    - Bu komut ile movieshop konteynırını dinleriz.
+    - Bu komut ile movieshop konteynerını dinleriz.
         > docker logs -f movieshop
-    - Bu komut ile istediğimiz konteynırı sonlandırırız.
+    - Bu komut ile istediğimiz konteynerı sonlandırırız.
         > docker kill movieshop
-    - Bu komut ile istediğimiz konteynırı sileriz. (Eğer çalışır durumdaysa --force tag'ini eklemeliyiz.)
+    - Bu komut ile istediğimiz konteynerı sileriz. (Eğer çalışır durumdaysa --force tag'ini eklemeliyiz.)
         > docker rm movieshop (docker rm --force movieshop)
-    - Bu komut ile port map'leme işlemi yapıyoruz. Yani konteynırımızdaki uygulamamızı hangi port ile erişeceğimizi
+    - Bu komut ile port map'leme işlemi yapıyoruz. Yani konteynerımızdaki uygulamamızı hangi port ile erişeceğimizi
     belirliyoruz. Mesela -p 9090:8080 tag'ini yazarsak 9090 port'u üzerinden uygulamamıza erişebiliriz.
-    Burada 9090 hangi port'tan erişeceğimizi, 8080 ise konteynır içerisinde uygulamanın hangi port üzerinden olduğuydu.
+    Burada 9090 hangi port'tan erişeceğimizi, 8080 ise konteyner içerisinde uygulamanın hangi port üzerinden olduğuydu.
         > docker run -d -p 9090:8080 --name movieshop movieshop:0.0.1
     - Bu komut ile oluşturulmuş Image listesini görebiliriz.
         > docker image ls
@@ -64,8 +64,8 @@ POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
         > docker rmi <ImageID>
     - Bu komut ile image'ımızın terminalini kullanabiliyoruz.
         > docker exec -it movieshop bash
-6. Ayrıca aynanda birden fazla konteynırla çalışmak istiyorsak docker-compose.yml dosyası oluşturmamız gerekmektedir.
-Birden fazla servis tanımlayıp aynanda çalıştırabiliriz. Mesela bu projede h2database ayrı bir konteynır olarak
+6. Ayrıca aynanda birden fazla konteynerla çalışmak istiyorsak docker-compose.yml dosyası oluşturmamız gerekmektedir.
+Birden fazla servis tanımlayıp aynanda çalıştırabiliriz. Mesela bu projede h2database ayrı bir konteyner olarak
 kullanılacaktır. Onun için de application-docker.properties içerisinde h2database konfigürasyonlarını yaptık. Ardından
 Dockerfile dosyamızı ve docker-compose.yml dosyalarımızı buna göre ayarladık.
     - docker-compose.yml dosyasını çalıştırmak için de şu komut gereklidir.
