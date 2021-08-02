@@ -4,6 +4,13 @@
 
 ![](spring-boot-docker.png)
 
+### Docker Nedir?
+
+Docker, uygulamalarınızı hızla derlemenize, test etmenize ve dağıtmanıza imkan tanıyan bir yazılım platformudur. Docker, yazılımları kitaplıklar, sistem araçları, kod ve çalışma zamanı dahil olmak üzere yazılımların çalışması için gerekli her şeyi içeren container adlı standartlaştırılmış birimler halinde paketler. Docker'ı kullanarak her ortama hızla uygulama dağıtıp uygulamaları ölçeklendirebilir ve kodunuzun çalışacağından emin olabilirsiniz.
+
+### Docker Nasıl Çalışır?
+Docker, kodunuzu çalıştırmanın standart bir yolunu sağlayarak çalışır. Docker, konteyner'lara yönelik bir işletim sistemidir. Bir sanal makinenin sunucu donanımını sanallaştırmasına (doğrudan yönetme gereksinimini ortadan kaldırma) benzer şekilde konteyner'lar da bir sunucunun işletim sistemini sanallaştırır. Docker her sunucuya yüklenir ve konteyner'ları oluşturmak, başlatmak veya durdurmak için kullanabileceğiniz basit komutlar sağlar.
+
 ### Kullanılan Araçlar
 
 ```
