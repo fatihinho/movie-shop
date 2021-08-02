@@ -16,9 +16,14 @@ Docker: v20.10.7
 
 ```
 GET: /api/v1/directors
+GET: /api/v1/directors/{id}
+GET: /api/v1/directors?name
+GET: /api/v1/directors?surname
 POST: /api/v1/directors | params: {name: String, surname: String}
 GET: /api/v1/movies
-POST: /api/v1/movies  | params: {name: String, rank: int, directorId: UUID}
+GET: /api/v1/movies/{id}
+GET: /api/v1/movies?name
+POST: /api/v1/movies | params: {name: String, rank: int, directorId: UUID}
 ```
 
 ### Docker Kullanım Talimatları
