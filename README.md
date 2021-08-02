@@ -1,8 +1,11 @@
 # Movie Shop
 
-## Spring Boot & Docker Uygulaması
+## Spring & Docker Uygulaması
 
 ![](spring-boot-docker.png)
+
+### Spring Nedir?
+Spring Java için geliştirilmiş, açık kaynak olan bir uygulama geliştirme framework'üdür. Spring Framework'ün temel özellikleri harhangi bir Java uygulaması tarafından kullanılabilmektedir. Eklentileri ile birlikte Java Enterprise platform üzerinde web uygulamaları ve mikroservisler geliştirmek için de kullanılabilir.
 
 ### Docker Nedir?
 
